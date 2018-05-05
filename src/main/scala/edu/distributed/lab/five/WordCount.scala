@@ -9,9 +9,9 @@ object WordCount {
   def main(args: Array[String]): Unit = {
 //    val inputFile = getClass.getClassLoader.getResource("document.txt").getPath
 //    val outputFile = "output"
-    
-    val inputFile = "hdfs://localhost:9000/PATH_TO_INPUT_FILE_ON_HDFS"
-    val outputFile = "hdfs://localhost:9000/PATH_TO_INPUT_FILE_ON_HDFS"
+
+    val inputFile = args(0) // "hdfs://localhost:9000/PATH_TO_INPUT_FILE_ON_HDFS"
+    val outputFile = args(1) // "hdfs://localhost:9000/PATH_TO_INPUT_FILE_ON_HDFS"
     val conf = new SparkConf().setMaster("local[*]").setAppName("wordCount")
     val sc = new SparkContext(conf)
     val input = sc.textFile(inputFile)
